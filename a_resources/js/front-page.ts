@@ -10,7 +10,7 @@
         type: 'loop',
         autoplay: true,
         cover: true,
-        height: '240px',
+        height: '302px',
         lazyLoad: 'nearby',
     });
 
@@ -20,6 +20,7 @@
         autoplay: true,
         cover: true,
         height: '8rem',
+        gap: '1rem',
         lazyLoad: 'nearby',
         breakpoints: {
             768: {
@@ -98,5 +99,26 @@
         Controller.go(s.index, false);
         splideShopChooseCategory.onAjax(clickedSlide);
     });
-    splideShopChooseCategory.onAjax();
+    splideShopChooseCategory.isOnAjax = false;
+
+    window.customOnScrollSingleton.scrollAbles.push(function (offset: number) {
+        var hT = $('#content-shop-start-pos').offset().top,
+            hH = $('#content-shop-start-pos').outerHeight(),
+            wH = $(window).height();
+        const offsetKena = (hT + hH - wH) + 95;
+
+        var kena = function () {
+            // console.log("KENA");
+            if (!splideShopChooseCategory.isOnAjax) {
+                splideShopChooseCategory.onAjax();
+                splideShopChooseCategory.isOnAjax = true;
+            }
+        };
+
+        var tidakKena = function () {
+            // console.log("TIDAK KENA");
+        };
+        // console.log(offset, offsetKena);
+        return offset >= offsetKena ? kena() : tidakKena();
+    });
 })();

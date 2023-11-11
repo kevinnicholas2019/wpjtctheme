@@ -5,74 +5,79 @@
 	require('@popperjs/core');
 	window.bootstrap = require('bootstrap');
 
-	$(document).ready(function () {
-		const stickyTableHeaderOnScroll = function () {
-			var raf = window.requestAnimationFrame ||
-				window.webkitRequestAnimationFrame ||
-				window.mozRequestAnimationFrame ||
-				window.msRequestAnimationFrame ||
-				window.oRequestAnimationFrame;
-			var lastScrollTop = $(window).scrollTop();
+	window.customOnScroll = function () {
+		var raf = window.requestAnimationFrame ||
+			window.webkitRequestAnimationFrame ||
+			window.mozRequestAnimationFrame ||
+			window.msRequestAnimationFrame ||
+			window.oRequestAnimationFrame;
+		var lastScrollTop = $(window).scrollTop();
 
-			var scroll = function (target, reinitTable = false) {
-				var appHeader = $("#headernav");
-				var offset = lastScrollTop;
-				var offsetKena = appHeader.height();
+		var scroll = function (target, reinitTable = false) {
+			var appHeader = $("#headernav");
+			var offset = lastScrollTop;
+			var offsetKena = appHeader.height();
 
-				var kena = function () {
-					appHeader.addClass("fixed-top");
-					appHeader.removeClass("position-absolute");
-					appHeader.find('.header-primary').addClass("bg-dark");
-					appHeader.find('.header-primary').removeClass("bg-dark-custom");
-					appHeader.find('.header-search').addClass("bg-dark");
-					appHeader.find('.header-search').removeClass("bg-dark-custom");
-				};
-
-				var tidakKena = function () {
-					appHeader.addClass("position-absolute");
-					appHeader.removeClass("fixed-top");
-					appHeader.find('.header-primary').removeClass("bg-dark");
-					appHeader.find('.header-primary').addClass("bg-dark-custom");
-					appHeader.find('.header-search').removeClass("bg-dark");
-					appHeader.find('.header-search').addClass("bg-dark-custom");
-				};
-
-				return offset >= offsetKena ? kena() : tidakKena();
+			var kena = function () {
+				appHeader.addClass("fixed-top");
+				appHeader.removeClass("position-absolute");
+				appHeader.find('.header-primary').addClass("bg-dark");
+				appHeader.find('.header-primary').removeClass("bg-dark-custom");
+				appHeader.find('.header-search').addClass("bg-dark");
+				appHeader.find('.header-search').removeClass("bg-dark-custom");
 			};
 
-			var onscroll = function (reinitTable = false) {
-				$("#headernav").each(function () {
-					scroll($(this), reinitTable);
-				});
-			}
+			var tidakKena = function () {
+				appHeader.addClass("position-absolute");
+				appHeader.removeClass("fixed-top");
+				appHeader.find('.header-primary').removeClass("bg-dark");
+				appHeader.find('.header-primary').addClass("bg-dark-custom");
+				appHeader.find('.header-search').removeClass("bg-dark");
+				appHeader.find('.header-search').addClass("bg-dark-custom");
+			};
 
-			// $(document).ajaxComplete(function () {
-			// 	onscroll(true);
-			// });
+			return offset >= offsetKena ? kena() : tidakKena();
+		};
 
-			function loop() {
-				// console.log("llop");
-				var scrollTop = $(window).scrollTop();
-				if (lastScrollTop === scrollTop) {
+		var thisFunc = this;
+		this.scrollAbles = [];
+
+		var onscroll = function (reinitTable = false) {
+			$("#headernav").each(function () {
+				scroll($(this), reinitTable);
+			});
+			thisFunc.scrollAbles.forEach(function (func) {
+				func(lastScrollTop);
+			});
+		}
+
+		// $(document).ajaxComplete(function () {
+		// 	onscroll(true);
+		// });
+
+		function loop() {
+			// console.log("llop");
+			var scrollTop = $(window).scrollTop();
+			if (lastScrollTop === scrollTop) {
+				$(window).off("scroll");
+				$(window).on("scroll", function () {
 					$(window).off("scroll");
-					$(window).on("scroll", function () {
-						$(window).off("scroll");
-						raf(loop);
-					});
-					return;
-				} else {
-					lastScrollTop = scrollTop;
-
-					// fire scroll function if scrolls vertically
-					onscroll();
 					raf(loop);
-				}
-			}
+				});
+				return;
+			} else {
+				lastScrollTop = scrollTop;
 
-			if (raf) {
-				loop();
+				// fire scroll function if scrolls vertically
+				onscroll();
+				raf(loop);
 			}
 		}
-		stickyTableHeaderOnScroll();
-	});
+
+		if (raf) {
+			loop();
+		}
+	}
+
+	window.customOnScrollSingleton = new window.customOnScroll();
 })();
