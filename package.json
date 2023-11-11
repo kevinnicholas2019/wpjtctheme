@@ -1,0 +1,33 @@
+{
+  "name": "jayatehnikcompany",
+  "module": "index.ts",
+  "type": "module",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.2",
+    "@splidejs/splide": "^4.1.4",
+    "bootstrap": "5.3.2",
+    "popper.js": "^1.16.1",
+    "sass": "^1.69.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "bun-types": "latest",
+    "nodemon": "^3.0.1",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "purgecss": "^5.0.0",
+    "stylelint": "^15.11.0"
+  },
+  "scripts": {
+    "jaya": "bun run jayabuild.ts & bun run css",
+    "css-compile": "sass --no-source-map --load-path=node_modules --style=compressed a_resources/scss/:assets/css/ && bun run css-prefix",
+    "css-lint": "bun stylelint a_resources/scss/*.scss",
+    "css-prefix": "postcss --replace assets/css/*.css --use autoprefixer",
+    "css-purge": "purgecss --keyframes --css assets/css/*.css --content index.html \"node_modules/bootstrap/js/dist/{util,modal}.js\" --output assets/css/",
+    "css": "bun run css-compile",
+    "watch": "nodemon -e html,scss,ts -x \"bun jaya\""
+  }
+}
