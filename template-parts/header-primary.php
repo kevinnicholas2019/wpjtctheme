@@ -52,7 +52,17 @@ require get_template_directory() . '/inc/jtc-get-custom-logo.php';
                     <div class="d-flex flex-md-row flex-column align-items-stretch gap-2">
                         <?= get_template_part('template-parts/toggler-lang') ?>
                         <div class="social-list d-flex gap-2 justify-content-center me-md-auto me-0 my-3 my-md-0">
-                            <?php dynamic_sidebar('jtc-widget-socials') ?>
+                            <?php
+                            if (is_active_sidebar('jtc-widget-socials')) {
+                                dynamic_sidebar('jtc-widget-socials');
+                            } else {
+                            ?>
+                                <a href="#" class="bg-linkedin"><i class="fab fa-linkedin-in fa-fw"></i></a>
+                                <a href="#" class="bg-instagram"><i class="fab fa-instagram fa-fw"></i></a>
+                                <a href="#" class="bg-whatsapp"><i class="fab fa-whatsapp fa-fw"></i></a>
+                            <?php
+                            }
+                            ?>
                         </div>
                         <div class="d-flex flex-md-row flex-column gap-1">
                             <?php dynamic_sidebar('jtc-widget-auth') ?>

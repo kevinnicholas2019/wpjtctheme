@@ -21,7 +21,16 @@
             </a>
             <hr class="vr text-white d-none d-lg-block">
             <div class="contact-us-container d-flex flex-row align-items-center gap-1">
-                <?php dynamic_sidebar('jtc-widget-request-chat-and-call') ?>
+                <?php
+                if (is_active_sidebar('jtc-widget-request-chat-and-call')) {
+                    dynamic_sidebar('jtc-widget-request-chat-and-call');
+                } else {
+                ?>
+                    <a class="btn btn-primary btn-whatsapp" href="#"><span class="me-2">Chat us</span><i class="fa-brands fa-whatsapp"></i></a>
+                    <a class="btn btn-primary" href="#"><span class="me-2">Call us</span><i class="fa-solid fa-phone-flip"></i></a>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </div>
