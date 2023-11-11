@@ -54,6 +54,8 @@
     splideBanner.mount();
     splideBrand.mount();
     splideShopChooseCategory.mount();
+    splideShopChooseCategory.isOnAjax = false;
+    splideShopChooseCategory.isOnAjaxWhenScroll = false;
 
     splideShopChooseCategory.onAjax = function (s) {
         var listItem = $(".content-shop-list-item");
@@ -61,6 +63,7 @@
         var onInit = function () {
             listItem.addClass('d-none');
             listItemLoading.addClass('d-none');
+            splideShopChooseCategory.isOnAjax = true;
         };
         var onLoad = function () {
             listItem.addClass('d-none');
@@ -69,6 +72,7 @@
         var onDone = function () {
             listItem.removeClass('d-none');
             listItemLoading.addClass('d-none');
+            splideShopChooseCategory.isOnAjax = false;
         };
         var thisEl = s ? s.slide : splideShopChooseCategory.Components.Slides.getAt(0);
         thisEl = $(thisEl);
@@ -91,15 +95,16 @@
     };
     splideShopChooseCategory.on('active', splideShopChooseCategory.onAjax);
     splideShopChooseCategory.on('click', function (s) {
-        var Slides = splideShopChooseCategory.Components.Slides;
-        var Controller = splideShopChooseCategory.Components.Controller;
-        var clickedSlide = Slides.getAt(s.index);
-        $(splideShopChooseCategory.root).find("a").removeClass('is-active');
-        $(clickedSlide.slide).addClass('is-active');
-        Controller.go(s.index, false);
-        splideShopChooseCategory.onAjax(clickedSlide);
+        if (!splideShopChooseCategory.isOnAjax) {
+            var Slides = splideShopChooseCategory.Components.Slides;
+            var Controller = splideShopChooseCategory.Components.Controller;
+            var clickedSlide = Slides.getAt(s.index);
+            $(splideShopChooseCategory.root).find("a").removeClass('is-active');
+            $(clickedSlide.slide).addClass('is-active');
+            Controller.go(s.index, false);
+            splideShopChooseCategory.onAjax(clickedSlide);
+        }
     });
-    splideShopChooseCategory.isOnAjax = false;
 
     window.customOnScrollSingleton.scrollAbles.push(function (offset: number) {
         var hT = $('#content-shop-start-pos').offset().top,
@@ -109,9 +114,9 @@
 
         var kena = function () {
             // console.log("KENA");
-            if (!splideShopChooseCategory.isOnAjax) {
+            if (!splideShopChooseCategory.isOnAjaxWhenScroll && !splideShopChooseCategory.isOnAjax) {
                 splideShopChooseCategory.onAjax();
-                splideShopChooseCategory.isOnAjax = true;
+                splideShopChooseCategory.isOnAjaxWhenScroll = true;
             }
         };
 
