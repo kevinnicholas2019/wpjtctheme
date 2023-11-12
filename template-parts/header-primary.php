@@ -1,6 +1,6 @@
 <?php
-require get_template_directory() . '/classes/class-jayatehnikcompany-menu-walker.php';
-require get_template_directory() . '/inc/jtc-get-custom-logo.php';
+require_once get_template_directory() . '/classes/class-jayatehnikcompany-menu-walker.php';
+require_once get_template_directory() . '/inc/jtc-get-custom-logo.php';
 ?>
 
 <div class="header-primary bg-dark-custom px-md-4 py-md-3 w-100">
@@ -65,7 +65,18 @@ require get_template_directory() . '/inc/jtc-get-custom-logo.php';
                             ?>
                         </div>
                         <div class="d-flex flex-md-row flex-column gap-1">
-                            <?php dynamic_sidebar('jtc-widget-auth') ?>
+                            <?php
+                            if (get_option('users_can_register')) {
+                                if (is_active_sidebar('jtc-widget-auth')) {
+                                    dynamic_sidebar('jtc-widget-auth');
+                                } else {
+                            ?>
+                                    <a class="btn btn-primary-outline" href="#"><span class="me-1">Login</span><i class="fa-solid fa-right-to-bracket"></i></a>
+                                    <a class="btn btn-primary" href="#"><span class="me-1">Register</span></a>
+                            <?php
+                                }
+                            }
+                            ?>
                             <hr class="text-white">
                         </div>
                     </div>

@@ -75,6 +75,7 @@ function jayatehnikcompany_register_scripts()
 
 function jayatehnikcompany_widget_areas()
 {
+    //HEADER
     register_sidebar(
         array(
             'before_title' => '',
@@ -111,6 +112,19 @@ function jayatehnikcompany_widget_areas()
         ),
     );
 
+    register_sidebar(
+        array(
+            'before_title' => '',
+            'after_title' => '',
+            'before_widget' => '',
+            'after_widget' => '',
+            'name' => 'Footer Area',
+            'id' => 'jtc-footer',
+            'description' => 'Widget footer',
+        ),
+    );
+
+    //ABOUT US
     register_sidebar(
         array(
             'before_title' => '',

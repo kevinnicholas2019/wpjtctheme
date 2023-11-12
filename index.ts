@@ -21,6 +21,7 @@
 			var kena = function () {
 				appHeader.addClass("fixed-top");
 				appHeader.removeClass("position-absolute");
+				appHeader.find('> .header-secondary').addClass("d-lg-none");
 				appHeader.find('.header-primary').addClass("bg-dark");
 				appHeader.find('.header-primary').removeClass("bg-dark-custom");
 				appHeader.find('.header-search').addClass("bg-dark");
@@ -30,6 +31,7 @@
 			var tidakKena = function () {
 				appHeader.addClass("position-absolute");
 				appHeader.removeClass("fixed-top");
+				appHeader.find('> .header-secondary').removeClass("d-lg-none");
 				appHeader.find('.header-primary').removeClass("bg-dark");
 				appHeader.find('.header-primary').addClass("bg-dark-custom");
 				appHeader.find('.header-search').removeClass("bg-dark");
@@ -78,6 +80,9 @@
 			loop();
 		}
 	}
+
+	// a href=# prevenDefault
+	$("a[href=#]").on("click", (e) => e.preventDefault());
 
 	window.customOnScrollSingleton = new window.customOnScroll();
 })();

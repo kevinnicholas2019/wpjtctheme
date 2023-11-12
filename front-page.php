@@ -2,13 +2,13 @@
 
 <div class="main-wrapper">
     <article class="main-content">
-        <section class="content-1 bg-dark-custom" style="background-image: url('<?= do_shortcode('[url-img-title title="heavy_equipment_1"]') ?>');">
+        <section class="content-header-attach bg-dark-custom" style="background-image: url('<?= do_shortcode('[url-img-title title="heavy_equipment_1"]') ?>');">
             <div class="container d-flex flex-column gap-5 align-items-center justify-content-center h-100">
-                <div class="content-1-texts">
+                <div class="content-header-attach-texts">
                     <h1 class="text-center">BUY NOW!</h1>
                     <h5 class="text-center">Find your Unit & Part of Dynamo Starter, Alternator, Service Parts and More!</h5>
                 </div>
-                <form class="content-1-form w-100 bg-dark-custom flex-row align-items-center justify-content-center p-4 gap-3 d-none d-lg-flex">
+                <form class="content-header-attach-form w-100 bg-dark-custom flex-row align-items-center justify-content-center p-4 gap-3 d-none d-lg-flex">
                     <input type="text" class="form-control py-3" placeholder="Select Category" />
 
                     <input type="text" class="form-control py-3" placeholder="Select Brand" />
@@ -20,14 +20,14 @@
                     </button>
                 </form>
 
-                <form class="content-1-form w-100 bg-dark-custom flex-row align-items-center justify-content-center p-4 gap-2 d-flex d-lg-none">
+                <form class="content-header-attach-form w-100 bg-dark-custom flex-row align-items-center justify-content-center p-4 gap-2 d-flex d-lg-none">
                     <input type="text" class="form-control py-2" placeholder="What are you looking for?" />
 
                     <button type="submit" class="form-control btn btn-primary text-uppercase" style="width: 45px; height: 45px; padding: 0 !important;">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
-                <div class="content-1-texts">
+                <div class="content-header-attach-texts">
                     <h5 class="text-center">Or list all available part equipment in our <a href="<?= get_permalink(wc_get_page_id('shop'));  ?>" class="btn btn-primary px-2">marketplace.</a></h5>
                 </div>
             </div>
