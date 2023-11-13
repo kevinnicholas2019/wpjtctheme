@@ -615,7 +615,9 @@ a:hover {
 	background-position: center center;
 }
 
-.splide-content-header-attach-fade-vr {
+.splide-content-header-attach-fade-vr .splide__pagination--ttb {
+	/* position: relative; */
+	z-index: 2;
 }
 
 /* MAIN WRAPPER */
