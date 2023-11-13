@@ -90,9 +90,7 @@
 		autoplay: true,
 		rewind: true,
 		perPage: 1,
-		// cover: true,
-		// autoWidth: true,
-		// lazyLoad: 'nearby',
+		interval: 10000,
 		classes: {
 			pagination: 'splide__pagination splide__pagination--ttb splide__pagination_content_header',
 			arrow: 'd-none splide__arrow',

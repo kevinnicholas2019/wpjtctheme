@@ -20,41 +20,51 @@
                         <h1>Who We Are</h1>
                         <hr class="hr-primary me-auto">
                     </div>
-                    <?php
-                    if (is_active_sidebar('jtc-widget-deskripsi-perusahaan')) {
-                        dynamic_sidebar('jtc-widget-deskripsi-perusahaan');
-                    } else {
-                    ?>
-                        <p>Jaya Tehnik Company is a company that focuses on providing spare parts and remanufacturing services for all types of heavy equipment with more than two decades of experience.</p>
+                    <p>
+                        <?php
+                        if (is_active_sidebar('jtc-widget-deskripsi-perusahaan')) {
+                            dynamic_sidebar('jtc-widget-deskripsi-perusahaan');
+                        } else {
+                        ?>
+                            Jaya Tehnik Company is a company that focuses on providing spare parts and remanufacturing services for all types of heavy equipment with more than two decades of experience.<br><br>
 
-                        <p>The spare parts presented include Motor Starters, Armatures, Alternators, Solenoids, and many other types of spare parts classified as OEM products or original products from major brands such as Caterpillar, Hitachi, Komatsu, New Era, Yanmar, Denso, Woodward, and many other brands.
-                        </p>
+                            The spare parts presented include Motor Starters, Armatures, Alternators, Solenoids, and many other types of spare parts classified as OEM products or original products from major brands such as Caterpillar, Hitachi, Komatsu, New Era, Yanmar, Denso, Woodward, and many other brands.<br><br>
 
-                        <p>Every product from Jaya Tehnik Company will go through an intensive checking process which ensures that each product functions optimally until the installation process is complete. Jaya Tehnik Company guarantees a 100% refund if the product received does not match the picture provided.
-                        </p>
 
-                        <p>Purchased products can be picked up directly at our office in Taman Sari Raya, West Jakarta or via delivery services such as online motorcycle taxis or expeditions.
-                        </p>
-                    <?php
-                    }
-                    ?>
+                            Every product from Jaya Tehnik Company will go through an intensive checking process which ensures that each product functions optimally until the installation process is complete. Jaya Tehnik Company guarantees a 100% refund if the product received does not match the picture provided.<br><br>
+
+                            Purchased products can be picked up directly at our office in Taman Sari Raya, West Jakarta or via delivery services such as online motorcycle taxis or expeditions.
+                        <?php
+                        }
+                        ?>
+                    </p>
                 </section>
                 <section class="our-contact col-lg-6 mb-4">
                     <div>
                         <h1>Our Contact</h1>
                         <hr class="hr-primary me-auto">
                         <a href="#">
-                            <?php
-                            if (is_active_sidebar('jtc-widget-alamat-perusahaan')) {
-                                dynamic_sidebar('jtc-widget-alamat-perusahaan');
-                            } else {
-                            ?>
-                                <p>Jl. Taman Sari Raya No.1, Maphar, Kec. Taman Sari, Jakarta, Daerah Khusus Ibukota Jakarta 11160</p>
-                            <?php
-                            }
-                            ?>
+                            <p>
+                                <?php
+                                if (is_active_sidebar('jtc-widget-alamat-perusahaan')) {
+                                    dynamic_sidebar('jtc-widget-alamat-perusahaan');
+                                } else {
+                                ?>
+                                    Jl. Taman Sari Raya No.1, Maphar, Kec. Taman Sari, Jakarta, Daerah Khusus Ibukota Jakarta 11160
+                                <?php
+                                }
+                                ?>
+                            </p>
                         </a>
-                        <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15867.081182287448!2d106.8266529!3d-6.1615107999999985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f55e962dbdff%3A0x3c969d5cd7eb06f3!2sJaya%20Tehnik%20Company!5e0!3m2!1sid!2sid!4v1699775801535!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <?php
+                        if (is_active_sidebar('jtc-widget-lokasi-peta-perusahaan')) {
+                            dynamic_sidebar('jtc-widget-lokasi-peta-perusahaan');
+                        } else {
+                        ?>
+                            <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15867.081182287448!2d106.8266529!3d-6.1615107999999985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f55e962dbdff%3A0x3c969d5cd7eb06f3!2sJaya%20Tehnik%20Company!5e0!3m2!1sid!2sid!4v1699775801535!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </section>
                 <section class="d-flex flex-sm-row flex-column gap-3 mb-4 flex-wrap">
@@ -62,57 +72,65 @@
                         <i class="text-primary far fa-building mb-3" style="font-size: 4.5rem;"></i>
                         <hr class="hr-primary ms-auto me-auto">
                         <h6>Field Company</h6>
-                        <?php
-                        if (is_active_sidebar('jtc-widget-bidang-perusahaan')) {
-                            dynamic_sidebar('jtc-widget-bidang-perusahaan');
-                        } else {
-                        ?>
-                            <p>Supplier of Unit & Parts of Dynamo Starter, Alternator & Service Parts Diesel</p>
-                        <?php
-                        }
-                        ?>
+                        <p>
+                            <?php
+                            if (is_active_sidebar('jtc-widget-bidang-perusahaan')) {
+                                dynamic_sidebar('jtc-widget-bidang-perusahaan');
+                            } else {
+                            ?>
+                                Supplier of Unit & Parts of Dynamo Starter, Alternator & Service Parts Diesel
+                            <?php
+                            }
+                            ?>
+                        </p>
                     </a>
                     <a href="#" class="card col-lg-3 col-md-6 p-4 text-center">
                         <i class="text-primary far fa-edit mb-3" style="font-size: 4.5rem;"></i>
                         <hr class="hr-primary ms-auto me-auto">
                         <h6>Since</h6>
-                        <?php
-                        if (is_active_sidebar('jtc-widget-tahun-berdiri')) {
-                            dynamic_sidebar('jtc-widget-tahun-berdiri');
-                        } else {
-                        ?>
-                            <p>1973</p>
-                        <?php
-                        }
-                        ?>
+                        <p>
+                            <?php
+                            if (is_active_sidebar('jtc-widget-tahun-berdiri')) {
+                                dynamic_sidebar('jtc-widget-tahun-berdiri');
+                            } else {
+                            ?>
+                                1973
+                            <?php
+                            }
+                            ?>
+                        </p>
                     </a>
                     <a href="#" class="card col-lg-3 col-md-6 p-4 text-center">
                         <i class="text-primary fas fa-users mb-3" style="font-size: 4.5rem;"></i>
                         <hr class="hr-primary ms-auto me-auto">
                         <h6>Number of Employees</h6>
-                        <?php
-                        if (is_active_sidebar('jtc-widget-jumlah-karyawan')) {
-                            dynamic_sidebar('jtc-widget-jumlah-karyawan');
-                        } else {
-                        ?>
-                            <p>2</p>
-                        <?php
-                        }
-                        ?>
+                        <p>
+                            <?php
+                            if (is_active_sidebar('jtc-widget-jumlah-karyawan')) {
+                                dynamic_sidebar('jtc-widget-jumlah-karyawan');
+                            } else {
+                            ?>
+                                2
+                            <?php
+                            }
+                            ?>
+                        </p>
                     </a>
                     <a href="#" class="card col-lg-3 col-md-6 p-4 text-center">
                         <i class="text-primary fas fa-shopping-cart mb-3" style="font-size: 4.5rem;"></i>
                         <hr class="hr-primary ms-auto me-auto">
                         <h6>What We Sell</h6>
-                        <?php
-                        if (is_active_sidebar('jtc-widget-kami-menjual')) {
-                            dynamic_sidebar('jtc-widget-kami-menjual');
-                        } else {
-                        ?>
-                            <p>Starter, Alternator, Armature, Field Coil, Regulator, Bendix Starter, Selenoid, Turbocharger, Regulator, Field Coil, Spare-part Starter, Spare-part Alternator, and Spare-part Heavy Equipment etc.</p>
-                        <?php
-                        }
-                        ?>
+                        <p>
+                            <?php
+                            if (is_active_sidebar('jtc-widget-kami-menjual')) {
+                                dynamic_sidebar('jtc-widget-kami-menjual');
+                            } else {
+                            ?>
+                                Starter, Alternator, Armature, Field Coil, Regulator, Bendix Starter, Selenoid, Turbocharger, Regulator, Field Coil, Spare-part Starter, Spare-part Alternator, and Spare-part Heavy Equipment etc.
+                            <?php
+                            }
+                            ?>
+                        </p>
                     </a>
                 </section>
                 <section class="our-schedule d-flex flex-lg-row flex-column gap-3">
@@ -123,7 +141,7 @@
                         </div>
                         <table class="table">
                             <?php $weekdayNow = date('l'); ?>
-                            <tr class="<?= $weekdayNow == 'Sunday' ? 'fw-bold' : '' ?>">
+                            <tr class="<?= $weekdayNow == 'Sunday' ? 'fw-bold text-warning' : '' ?>">
                                 <td>Sunday</td>
                                 <td>Closed</td>
                             </tr>
@@ -169,7 +187,7 @@
                 <div class="text-center">
                     <h1>Connect With Us</h1>
                     <hr class="hr-primary ms-auto me-auto">
-                    <a href="<?= get_permalink(get_page_by_path('contact-us')) ?>" class="mt-3 mb-5 btn btn-primary text-uppercase py-3">Send Inquiry<i class="fas fa-envelope ms-2"></i></a>
+                    <a href="<?= get_permalink(get_page_by_path('contact-us')) . '#leave-a-reply-limit-top-area' ?>" class="mt-3 mb-5 btn btn-primary text-uppercase py-3">Send Inquiry<i class="fas fa-envelope ms-2"></i></a>
                 </div>
             </section>
         </div>
