@@ -26,8 +26,8 @@
                     dynamic_sidebar('jtc-widget-request-chat-and-call');
                 } else {
                 ?>
-                    <a class="btn btn-primary btn-whatsapp" href="#"><span class="me-2">Chat us</span><i class="fa-brands fa-whatsapp"></i></a>
-                    <a class="btn btn-primary" href="#"><span class="me-2">Call us</span><i class="fa-solid fa-phone-flip"></i></a>
+                    <a class="btn btn-primary btn-whatsapp" href="https://wa.me/6285310007789" target="_blank"><span class="me-2">Chat us</span><i class="fa-brands fa-whatsapp"></i></a>
+                    <a class="btn btn-primary" href="tel:+6281210007789"><span class="me-2">Call us</span><i class="fa-solid fa-phone-flip"></i></a>
                 <?php
                 }
                 ?>

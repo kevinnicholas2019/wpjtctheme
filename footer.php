@@ -50,9 +50,9 @@ require_once get_template_directory() . '/inc/jtc-get-custom-logo.php';
                         dynamic_sidebar('jtc-widget-no-telepon');
                     } else {
                     ?>
-                        <p>+62 812-1000-7789 (Anen)</p>
-                        <p>+62 53-1000-7789 (Anen)</p>
-                        <p>+62 56-9516-3031 (Kevin)</p>
+                        <p><a href="https://wa.me/6281210007789" target="_blank">+62 812-1000-7789 (Anen)</a></p>
+                        <p><a href="https://wa.me/6285310007789" target="_blank">+62 853-1000-7789 (Anen)</a></p>
+                        <p><a href="https://wa.me/6285695163031" target="_blank">+62 856-9516-3031 (Kevin)</a></p>
                     <?php
                     }
                     ?>
@@ -61,7 +61,7 @@ require_once get_template_directory() . '/inc/jtc-get-custom-logo.php';
                         dynamic_sidebar('jtc-widget-email-perusahaab');
                     } else {
                     ?>
-                        <p>jayatehnikcompany@gmail.com</p>
+                        <p><a href="mailto:jayatehnikcompany@gmail.com?subject=Asking Product Ready (Tanya Barang)&body=Saya mau tanya apakah ada barang dengan no sparepart 'xxxxxx', mohon dibantu!">jayatehnikcompany@gmail.com</a></p>
                     <?php
                     }
                     ?>

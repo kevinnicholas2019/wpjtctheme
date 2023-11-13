@@ -187,32 +187,67 @@ function get_img_by_title($atts)
     $title = $atts['title'];
     $class = $atts['class'];
     $style = $atts['style'];
+    $size = $atts['size'] ?? 'original';
 
     global $wpdb;
+    $attachment_url = [];
 
     $attachments = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_title = '$title' AND post_type = 'attachment'", OBJECT);
     if ($attachments) {
         $attachment_id = $attachments[0]->ID;
-        $attachment_url = $attachments[0]->guid;
+        $attachment_url = wp_get_attachment_image_src($attachment_id, $size);
+        // $attachment_url = $attachments[0]->guid;
         $attachments_alt_text = $wpdb->get_results("SELECT * FROM wp_postmeta WHERE post_id = $attachment_id AND meta_key = '_wp_attachment_image_alt'", OBJECT);
         $attachments_alt_text = $attachments_alt_text[0] ? $attachments_alt_text[0]->meta_value : '';
-    } else {
+    }
+
+    if (!$attachments || !$attachment_url[0]) {
         return '<img class="" src="" alt="image not found" >';
     }
 
-    return "<img class='$class' src='$attachment_url' alt='$attachments_alt_text' style='$style' >";
+    $width = $attachment_url[1];
+    $height = $attachment_url[2];
+    $attachment_url = $attachment_url[0];
+    return "<img class='$class' src='$attachment_url' alt='$attachments_alt_text' style='$style' width='$width' height='$height' >";
 }
 
 function get_img_url_by_title($atts)
 {
     $title = $atts['title'];
+    $size = $atts['size'] ?? 'medium';
 
     global $wpdb;
+    $attachment_url = [];
 
     $attachments = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_title = '$title' AND post_type = 'attachment'", OBJECT);
     if ($attachments) {
-        $attachment_url = $attachments[0]->guid;
-    } else {
+        $attachment_id = $attachments[0]->ID;
+        $attachment_url = wp_get_attachment_image_src($attachment_id, $size);
+    }
+
+    if (!$attachments || !$attachment_url[0]) {
+        return 'image-not-found';
+    }
+
+    $attachment_url = $attachment_url[0];
+    return $attachment_url;
+}
+
+function get_img_url_by_title_detail($atts)
+{
+    $title = $atts['title'];
+    $size = $atts['size'] ?? 'medium';
+
+    global $wpdb;
+    $attachment_url = [];
+
+    $attachments = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_title = '$title' AND post_type = 'attachment'", OBJECT);
+    if ($attachments) {
+        $attachment_id = $attachments[0]->ID;
+        $attachment_url = wp_get_attachment_image_src($attachment_id, $size);
+    }
+
+    if (!$attachments || !$attachment_url[0]) {
         return 'image-not-found';
     }
 

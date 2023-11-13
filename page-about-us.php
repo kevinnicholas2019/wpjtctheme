@@ -2,7 +2,8 @@
 
 <div class="main-wrapper">
     <article class="main-content">
-        <div class="content-header-attach bg-dark-custom" style="background-image: url('<?= do_shortcode('[url-img-title title="heavy_equipment_1"]') ?>');">
+        <div class="content-header-attach bg-dark-custom">
+            <?= get_template_part('template-parts/splide-content-header-attach-fade-vr') ?>
             <div class="container d-flex flex-column gap-5 align-items-center justify-content-center h-100">
                 <div class="content-header-attach-texts text-center">
                     <h1 class="heading"><?php the_title(); ?></h1>
@@ -12,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <div class="container p-3" style="margin-top: 510px;">
+        <div class="container p-3">
             <div class="row">
                 <section class="who-we-are mb-4 col-lg-6">
                     <div>

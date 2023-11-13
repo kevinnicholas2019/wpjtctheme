@@ -2,7 +2,8 @@
 
 <div class="main-wrapper">
     <article class="main-content">
-        <section class="content-header-attach bg-dark-custom" style="background-image: url('<?= do_shortcode('[url-img-title title="heavy_equipment_1"]') ?>');">
+        <section class="content-header-attach bg-dark-custom">
+            <?= get_template_part('template-parts/splide-content-header-attach-fade-vr') ?>
             <div class="container d-flex flex-column gap-5 align-items-center justify-content-center h-100">
                 <div class="content-header-attach-texts">
                     <h1 class="text-center">BUY NOW!</h1>
