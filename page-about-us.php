@@ -136,7 +136,7 @@
                 <section class="our-schedule d-flex flex-lg-row flex-column gap-3">
                     <div class="col-lg-6 col-12 mb-4">
                         <div>
-                            <h1>Our Working Hours</h1>
+                            <h1>Our Office Hours</h1>
                             <hr class="hr-primary me-auto">
                         </div>
                         <table class="table">

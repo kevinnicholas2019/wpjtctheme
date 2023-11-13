@@ -4,7 +4,7 @@
     <article class="main-content">
         <section class="content-header-attach bg-dark-custom">
             <?= get_template_part('template-parts/splide-content-header-attach-fade-vr') ?>
-            <div class="container d-flex flex-column gap-5 align-items-center justify-content-center h-100 position-relative" style="z-index: 1;">
+            <div class="container d-flex flex-column gap-5 align-items-center justify-content-center h-100 position-relative">
                 <div class="content-header-attach-texts">
                     <h1 class="text-center">BUY NOW!</h1>
                     <h5 class="text-center">Find your Unit & Part of Dynamo Starter, Alternator, Service Parts and More!</h5>

@@ -69,7 +69,7 @@
                         </tr>
                         <tr>
                             <td><i class="fas fa-coffee"></i></td>
-                            <td>Hours</td>
+                            <td>Office Hours</td>
                             <td>
                                 <table class="w-100">
                                     <?php $weekdayNow = date('l'); ?>

@@ -620,6 +620,10 @@ a:hover {
 	z-index: 2;
 }
 
+.splide-content-header-attach-fade-vr + * {
+	z-index: 1;
+}
+
 /* MAIN WRAPPER */
 .main-wrapper {
 	min-height: calc(calc(168px + 48px) + 504px);
