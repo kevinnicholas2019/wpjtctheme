@@ -615,6 +615,9 @@ a:hover {
 	background-position: center center;
 }
 
+.splide-content-header-attach-fade-vr {
+}
+
 /* MAIN WRAPPER */
 .main-wrapper {
 	min-height: calc(calc(168px + 48px) + 504px);

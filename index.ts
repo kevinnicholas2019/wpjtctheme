@@ -85,18 +85,21 @@
 	$("a[href=#]").on("click", (e) => e.preventDefault());
 
 	// SPLIDER FADE
-	var splide = new Splide('.splide-content-header-attach-fade-vr', {
-		type: 'fade',
-		autoplay: true,
-		rewind: true,
-		perPage: 1,
-		interval: 10000,
-		classes: {
-			pagination: 'splide__pagination splide__pagination--ttb splide__pagination_content_header',
-			arrow: 'd-none splide__arrow',
-		},
-	});
-	splide.mount();
+	var splidesLength = $('.splide-content-header-attach-fade-vr').length;
+	if (splidesLength > 0) {
+		var splide = new Splide('.splide-content-header-attach-fade-vr', {
+			type: 'fade',
+			autoplay: true,
+			rewind: true,
+			perPage: 1,
+			interval: 10000,
+			classes: {
+				pagination: 'splide__pagination splide__pagination--ttb splide__pagination_content_header',
+				arrow: 'd-none splide__arrow',
+			},
+		});
+		splide.mount();
+	}
 
 	window.customOnScrollSingleton = new window.customOnScroll();
 })();

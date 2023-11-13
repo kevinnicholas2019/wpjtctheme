@@ -41,13 +41,6 @@
                             <li class="splide__slide">Banner 01</li>
                             <li class="splide__slide">Banner 01</li>
                             <li class="splide__slide">Banner 01</li>
-                            <li class="splide__slide">Banner 01</li>
-                            <li class="splide__slide">Banner 01</li>
-                            <li class="splide__slide">Banner 01</li>
-                            <li class="splide__slide">Banner 01</li>
-                            <li class="splide__slide">Banner 01</li>
-                            <li class="splide__slide">Banner 01</li>
-                            <li class="splide__slide">Banner 01</li>
                         </ul>
                     </div>
                 </div>
