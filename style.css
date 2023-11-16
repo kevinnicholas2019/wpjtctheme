@@ -172,6 +172,16 @@ This theme is not for sale, and can't copy it !
 	.gap-3 > .col-6 {
 		width: calc(((100% + 1rem) / 2) - 1rem);
 	}
+
+	/* .row.gap-3 > #wpgs-gallery {
+		width: calc(100% - 24px) !important;
+	} */
+
+	.row.gap-3 > #wpgs-gallery {
+		width: calc(100% - 24px) !important;
+		padding: 0 !important;
+		margin: 0 !important;
+	}
 }
 
 @media screen and (min-width: 576px) {
@@ -181,10 +191,6 @@ This theme is not for sale, and can't copy it !
 
 	.gap-3 > .col-md-6 {
 		width: calc(((100% + 1rem) / 2) - 1rem);
-	}
-
-	.row.gap-3 > #wpgs-gallery.woocommerce-product-gallery {
-		width: 100% !important;
 	}
 }
 
