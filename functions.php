@@ -172,7 +172,9 @@ function get_products_by_cat_callback()
     $products = wc_get_products($args);
     // for ($i = 0; $i < 12; $i++)
     foreach ($products as $product) {
-        echo get_template_part('template-parts/card-product', '', $product);
+        echo '<div class="col-lg-2 col-md-4 col-6">';
+        echo get_template_part('template-parts/content-product', '', $product);
+        echo '</div>';
         echo "\n";
     }
     wp_die();
@@ -185,30 +187,34 @@ add_action('wp_ajax_nopriv_get_products_by_cat', 'get_products_by_cat_callback')
 function get_img_by_title($atts)
 {
     $title = $atts['title'];
-    $class = $atts['class'];
+    // $class = $atts['class'];
     $style = $atts['style'];
     $size = $atts['size'] ?? 'original';
+    $lazy = $atts['lazy'] ?? true;
+    if ($lazy) {
+        $atts['loading'] = 'lazy';
+    }
 
     global $wpdb;
-    $attachment_url = [];
+    $imgHtml = "";
 
     $attachments = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_title = '$title' AND post_type = 'attachment'", OBJECT);
     if ($attachments) {
         $attachment_id = $attachments[0]->ID;
-        $attachment_url = wp_get_attachment_image_src($attachment_id, $size);
-        // $attachment_url = $attachments[0]->guid;
-        $attachments_alt_text = $wpdb->get_results("SELECT * FROM wp_postmeta WHERE post_id = $attachment_id AND meta_key = '_wp_attachment_image_alt'", OBJECT);
-        $attachments_alt_text = $attachments_alt_text[0] ? $attachments_alt_text[0]->meta_value : '';
+        $imgHtml = wp_get_attachment_image($attachment_id, $size, false, $atts);
     }
 
-    if (!$attachments || !$attachment_url[0]) {
+    if (!$attachments || $imgHtml == "") {
         return '<img class="" src="" alt="image not found" >';
     }
 
-    $width = $attachment_url[1];
-    $height = $attachment_url[2];
-    $attachment_url = $attachment_url[0];
-    return "<img class='$class' src='$attachment_url' alt='$attachments_alt_text' style='$style' width='$width' height='$height' >";
+    // $imgHtml = "<img class='$class' src='$attachment_url' alt='$attachments_alt_text' style='$style' width='$width' height='$height' loading='lazy'>";
+
+    if ($lazy) {
+        $imgHtml = apply_filters('woocommerce_single_product_image_thumbnail_html', $imgHtml, $attachment_id); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+    }
+
+    return $imgHtml;
 }
 
 function get_img_url_by_title($atts)
@@ -229,8 +235,8 @@ function get_img_url_by_title($atts)
         return 'image-not-found';
     }
 
-    $attachment_url = $attachment_url[0];
-    return $attachment_url;
+    $imgHtml = $attachment_url[0];
+    return $imgHtml;
 }
 
 function get_img_url_by_title_detail($atts)

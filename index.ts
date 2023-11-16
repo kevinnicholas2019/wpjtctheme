@@ -3,6 +3,7 @@
 	window.Splide = require("@splidejs/splide").Splide;
 	require("@fortawesome/fontawesome-free");
 	require('@popperjs/core');
+	window.PerfectScrollbar = require('perfect-scrollbar');
 	window.bootstrap = require('bootstrap');
 
 	window.customOnScroll = function () {
@@ -100,6 +101,35 @@
 		});
 		splide.mount();
 	}
+
+	if ($('.ps').length > 0) {
+		const ps = new
+			PerfectScrollbar('.ps', {
+				wheelSpeed: 0.75,
+				wheelPropagation: true,
+			});
+	}
+
+	$('.btn-minuse').on('click', function () {
+		var target = $(this).parent().parent().find('input[type=number]');
+		var curr = parseInt(target.val()) - 1;
+		var min = parseInt($(this).attr("data-min"));
+		target.val(curr < min ? min : curr);
+	});
+
+	$('.btn-pluss').on('click', function () {
+		var target = $(this).parent().parent().find('input[type=number]');
+		var curr = parseInt(target.val()) + 1;
+		var max = parseInt($(this).attr("data-max"));
+		target.val(curr > max ? max : curr);
+	});
+
+	// $('.woocommerce .quantity .qty').on('keydown', function (e) {
+	// 	var val = parseInt($(this).val());
+	// 	if (val <= 0 || val >= 1000) {
+	// 		e.preventDefault();
+	// 	}
+	// });
 
 	window.customOnScrollSingleton = new window.customOnScroll();
 })();

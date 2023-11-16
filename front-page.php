@@ -119,7 +119,9 @@
                 <div class="content-shop-item-container">
                     <div class="content-shop-list-item-loading d-flex flex-wrap position-relative gap-3 d-none">
                         <?php for ($i = 0; $i < 12; $i++) { ?>
-                            <?= get_template_part('template-parts/card-product', 'loading') ?>
+                            <div class="col-lg-2 col-md-4 col-6">
+                                <?= get_template_part('template-parts/content-product', 'loading') ?>
+                            </div>
                         <?php } ?>
                     </div>
                     <div class="content-shop-list-item d-flex flex-wrap position-relative gap-3 d-none">

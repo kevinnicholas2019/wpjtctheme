@@ -7,13 +7,13 @@ foreach ($onlyshow as $cat) {
     if ($cat) {
         $link = get_term_link($cat->slug, 'product_cat');
         $thumbnail_id = get_term_meta($cat->term_id, 'thumbnail_id', true);
-        $imgurl = wp_get_attachment_url($thumbnail_id);
+        $imgHtml = wp_get_attachment_image($thumbnail_id, 'thumnbail', false, ['class' => "w-100 h-100 p-lg-5 p-3"]);
 
 ?>
         <div class="col-lg-3 col-md-4 col-sm-6 col-6 content-2-category-item text-center d-flex flex-column justify-content-center align-items-center gap-2">
             <div class="card w-100">
                 <a href="<?= $link ?>">
-                    <img class="w-100 h-100 p-lg-5 p-3" src="<?= $imgurl ?>" alt="JTC Thumbnail of <?= $cat->name ?>" width="200" height="200">
+                    <?= $imgHtml ?>
                 </a>
             </div>
             <h4 class="mb-5 text-capitalize">
