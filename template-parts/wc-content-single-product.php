@@ -32,7 +32,7 @@ if (post_password_required()) {
 	return;
 }
 ?>
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class('row gap-3', $product); ?>>
+<div id="product-<?php the_ID(); ?>" <?php wc_product_class('row gap-3 justify-content-center', $product); ?>>
 
 	<?php
 	/**
@@ -44,7 +44,7 @@ if (post_password_required()) {
 	do_action('woocommerce_before_single_product_summary');
 	?>
 
-	<div class="summary entry-summary col-lg-9">
+	<div class="summary entry-summary col-lg-9 w-100 w-lg-auto">
 		<?php
 		/**
 		 * Hook: woocommerce_single_product_summary.

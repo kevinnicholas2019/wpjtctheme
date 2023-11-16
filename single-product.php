@@ -47,7 +47,7 @@ get_header('shop'); ?>
             ?>
         </div>
     </div>
-    <div class="container">
+    <div class="container mb-lg-5 mb-3">
         <div class="row gap-3">
             <div class="col-lg-8">
                 <?php while (have_posts()) : ?>
@@ -65,7 +65,7 @@ get_header('shop'); ?>
                             <h5 class="mb-4">Set Quantity</h5>
                             <?php do_action('woocommerce_before_add_to_cart_quantity'); ?>
                             <div class="row">
-                                <div class="qty-group-container col-12 col-xl-6">
+                                <div class="qty-group-container col-12 col-xl-7 col-xxl-6">
                                     <div class="qty-group input-group">
                                         <span class="input-group-btn">
                                             <button class="btn btn-primary btn-minuse py-2 px-3" type="button" data-min="<?= $product->get_min_purchase_quantity() ?>">-</button>
@@ -84,7 +84,7 @@ get_header('shop'); ?>
                                         </span>
                                     </div>
                                 </div>
-                                <div class="mt-2 mt-xl-0 mb-xl-0 col-lg-12 col-xl-6 p-2">
+                                <div class="mt-2 mt-xl-0 mb-xl-0 col-lg-12 col-xl-5 col-xxl-6 p-2">
                                     Total Stock : <b><?= $product->get_stock_quantity() ?></b>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@ get_header('shop'); ?>
                         <div class="form-group">
                             <?php do_action('woocommerce_before_add_to_cart_button'); ?>
 
-                            <button type="button" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="btn btn-primary mb-2 w-100 alt<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>">Buy Now</button>
+                            <button type="button" name="buy-now" value="<?php echo esc_attr($product->get_id()); ?>" class="btn btn-primary mb-2 w-100 alt<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>">Buy Now</button>
 
                             <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="btn btn-primary-outline w-100 alt<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>"><?php echo esc_html($product->single_add_to_cart_text()); ?></button>
 

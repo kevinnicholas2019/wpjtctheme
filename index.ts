@@ -12,6 +12,7 @@
 			window.mozRequestAnimationFrame ||
 			window.msRequestAnimationFrame ||
 			window.oRequestAnimationFrame;
+		var isScrollingUp = false;
 		var lastScrollTop = $(window).scrollTop();
 
 		var scroll = function (target, reinitTable = false) {
@@ -39,7 +40,7 @@
 				appHeader.find('.header-search').addClass("bg-dark-custom");
 			};
 
-			return offset >= offsetKena ? kena() : tidakKena();
+			return !isScrollingUp && offset >= offsetKena ? kena() : tidakKena();
 		};
 
 		var thisFunc = this;
@@ -69,6 +70,7 @@
 				});
 				return;
 			} else {
+				isScrollingUp = lastScrollTop > scrollTop;
 				lastScrollTop = scrollTop;
 
 				// fire scroll function if scrolls vertically
@@ -93,7 +95,7 @@
 			autoplay: true,
 			rewind: true,
 			perPage: 1,
-			interval: 10000,
+			interval: 5000,
 			classes: {
 				pagination: 'splide__pagination splide__pagination--ttb splide__pagination_content_header',
 				arrow: 'd-none splide__arrow',
@@ -124,12 +126,12 @@
 		target.val(curr > max ? max : curr);
 	});
 
-	// $('.woocommerce .quantity .qty').on('keydown', function (e) {
-	// 	var val = parseInt($(this).val());
-	// 	if (val <= 0 || val >= 1000) {
-	// 		e.preventDefault();
-	// 	}
-	// });
+	$('.woocommerce .quantity .qty').on('keydown', function (e) {
+		var val = parseInt($(this).val());
+		if (val <= 0 || val >= 1000) {
+			e.preventDefault();
+		}
+	});
 
 	window.customOnScrollSingleton = new window.customOnScroll();
 })();

@@ -64,6 +64,8 @@ This theme is not for sale, and can't copy it !
 	/* Sidebar */
 	--sidebar-width: 280px;
 	--content-max-width: 860px;
+	--z-index-header: 99991;
+	--z-index-modal-gallery-slider: 99992;
 }
 
 .font-size-small {
@@ -180,6 +182,10 @@ This theme is not for sale, and can't copy it !
 	.gap-3 > .col-md-6 {
 		width: calc(((100% + 1rem) / 2) - 1rem);
 	}
+
+	.row.gap-3 > #wpgs-gallery.woocommerce-product-gallery {
+		width: 100% !important;
+	}
 }
 
 /* --breakpoint-lg: 992px; */
@@ -192,8 +198,8 @@ This theme is not for sale, and can't copy it !
 		width: calc(((100% + 1rem) / 4) - 1rem);
 	}
 
-	.gap-3 > #wpgs-gallery {
-		width: calc(((100% + 1rem) / 2) - 1rem) !important;
+	.row.gap-3 > #wpgs-gallery.woocommerce-product-gallery {
+		width: 47.4814% !important;
 	}
 
 	.gap-3 > .col-lg-4 {
@@ -397,7 +403,23 @@ a:hover {
 /* HEADER & NAV */
 
 .header {
-	z-index: 99999;
+	z-index: var(--z-index-header);
+}
+
+@keyframes header-anim {
+	0% {
+		top: -17%;
+	}
+	100% {
+		top: 0;
+	}
+}
+
+.header.fixed-top {
+	top: 0;
+	animation-name: header-anim;
+	animation-duration: calc((1 / 60) * 10s);
+	animation-timing-function: linear;
 }
 
 .site-title .logo {
@@ -504,12 +526,15 @@ a:hover {
 	outline-color: var(--primary);
 	border-color: var(--primary);
 	padding: 5px 30px;
+	border-width: 2px;
 }
 
 .btn-primary:hover,
 .single_add_to_cart_button.button:hover {
 	background-color: var(--white) !important;
 	color: var(--primary) !important;
+	outline-color: var(--primary) !important;
+	border-color: var(--primary) !important;
 }
 
 .btn-primary-outline {
@@ -891,6 +916,20 @@ a:hover {
 	clear: unset !important;
 }
 
+@media (min-width: 768px) {
+	.woocommerce #content div.product div.summary,
+	.woocommerce div.product div.summary,
+	.woocommerce-page #content div.product div.summary,
+	.woocommerce-page div.product div.summary {
+		float: unset !important;
+	}
+}
+
 .woocommerce div.product .stock {
 	color: var(--lightgray) !important;
+}
+
+.slick-arrow {
+	background-color: var(--primary) !important;
+	opacity: 0.675;
 }

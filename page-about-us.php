@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <div class="container p-3">
+        <div class="container p-3 py-5">
             <div class="row">
                 <section class="who-we-are mb-4 col-lg-6">
                     <div>
