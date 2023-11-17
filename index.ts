@@ -10,7 +10,7 @@
 	if ($('.ps').length > 0) {
 		$('.ps').each(function () {
 			new PerfectScrollbar(this, {
-				wheelSpeed: 0.75,
+				wheelSpeed: 2,
 				wheelPropagation: true,
 				useBothWheelAxes: true,
 			});
