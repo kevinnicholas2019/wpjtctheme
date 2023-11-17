@@ -21,8 +21,8 @@ defined('ABSPATH') || exit;
 get_header('shop');
 
 ?>
-<div>
-	<div class="bg-primary-gradient position-relative mb-5" style="padding-top: 214px;">
+<div class="main-wrapper-2 main-content">
+	<section class="bg-primary-gradient position-relative mb-5" style="padding-top: 214px;">
 		<div class="container">
 			<header class="woocommerce-products-header mt-5 p-0">
 				<?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
@@ -52,10 +52,10 @@ get_header('shop');
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="container mb-5">
+	</section>
+	<section class="container mb-md-5 mb-0">
 		<div class="row">
-			<div class="d-none d-lg-block col-lg-3">
+			<div class="col-lg-3 col-12">
 				<?php
 				/**
 				 * Hook: woocommerce_sidebar.
@@ -127,8 +127,9 @@ get_header('shop');
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 </div>
+
 
 <?php
 

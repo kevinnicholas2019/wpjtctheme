@@ -1,6 +1,6 @@
 <?php get_header(); ?>
-<div>
-    <div class="bg-primary-gradient position-relative mb-5" style="padding-top: 214px;">
+<div class="main-wrapper-2 main-content">
+    <section class="bg-primary-gradient position-relative mb-5" style="padding-top: 214px;">
         <div class="container">
             <header class="woocommerce-products-header mt-5 p-0">
                 <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
@@ -30,8 +30,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container mb-5">
+    </section>
+    <section class="container mb-5">
         <?php
         if (have_posts()) {
             while (have_posts()) {
@@ -40,7 +40,7 @@
             }
         }
         ?>
-    </div>
+    </section>
 </div>
 
 <?php

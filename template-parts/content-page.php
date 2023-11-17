@@ -1,4 +1,4 @@
-<div class="container">
+<article class="container">
     <header class="content-header">
         <div class="meta mb-3">
             <span class="date"><?= the_date() ?></span>
@@ -11,4 +11,4 @@
     <?php
     the_content();
     ?>
-</div>
+</article>

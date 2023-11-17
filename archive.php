@@ -4,7 +4,7 @@
     <header class="page-title theme-bg-light text-center gradient py-5">
         <h1 class="heading"><?php the_title(); ?></h1>
     </header>
-    <article class="main-content">
+    <section class="main-content">
         <?php
         if (have_posts()) {
             while (have_posts()) {
@@ -13,7 +13,7 @@
             }
         }
         ?>
-    </article>
+    </section>
 </div>
 
 <?php get_footer(); ?>

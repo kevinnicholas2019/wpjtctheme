@@ -23,9 +23,9 @@ if (!defined('ABSPATH')) {
 global $product;
 
 get_header('shop'); ?>
-<div>
-    <div class="bg-primary-gradient jtc-padding-tatakan-header"></div>
-    <div class="container">
+<article class="main-wrapper-2 main-content">
+    <section class="bg-primary-gradient jtc-padding-tatakan-header"></section>
+    <section class="container">
         <div class="py-3 mb-4">
             <?php
             /**
@@ -46,8 +46,8 @@ get_header('shop'); ?>
             do_action('woocommerce_after_main_content');
             ?>
         </div>
-    </div>
-    <div class="container mb-lg-5 mb-3">
+    </section>
+    <section class="container mb-lg-5 mb-3">
         <div class="row gap-3">
             <div class="col-lg-8">
                 <?php while (have_posts()) : ?>
@@ -114,8 +114,8 @@ get_header('shop'); ?>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+</article>
 <?php
 get_footer('shop');
 

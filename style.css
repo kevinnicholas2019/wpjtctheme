@@ -13,6 +13,17 @@ Author URI: https://www.jayatehnikcompany.com/
 This theme is not for sale, and can't copy it !
 */
 
+/* html,
+body,
+#app {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	touch-action: none;
+} */
+
 :root {
 	--blue: #007bff;
 	--indigo: #6610f2;
@@ -428,6 +439,11 @@ a:hover {
 	animation-timing-function: linear;
 }
 
+.header.fixed-top .header-primary {
+	max-height: 576px;
+	overflow-y: hidden;
+}
+
 .site-title .logo {
 	width: 72px !important;
 	height: 72px !important;
@@ -750,8 +766,51 @@ a:hover {
 	position: relative;
 }
 
+.ps__thumb-x,
 .ps__thumb-y {
 	background-color: var(--primary);
+}
+
+.ps__rail-x,
+.ps__rail-y {
+	z-index: calc(var(--z-index-modal-gallery-slider) + 1) !important;
+}
+
+#sidebar > section:nth-child(2) .list-group.ps {
+	height: 576px !important;
+}
+
+@media screen and (max-width: 992px) {
+	#sidebar {
+		background: transparent !important;
+		border: unset !important;
+		box-shadow: none !important;
+	}
+
+	#sidebar > section:first-child {
+		display: none;
+	}
+
+	#sidebar > section:nth-child(2) .list-group.ps {
+		flex-direction: row;
+		height: 38px;
+		column-gap: 0.5rem;
+		height: auto !important;
+		padding-bottom: 12px;
+		margin-bottom: 8px;
+	}
+
+	#sidebar > section:nth-child(2) .list-group.ps .list-group-item {
+		white-space: nowrap;
+		border: var(--bs-border-width) var(--bs-border-style)
+			var(--bs-border-color) !important;
+		border-radius: var(--bs-border-radius) !important;
+	}
+
+	#sidebar > section:nth-child(2) .list-group.ps .list-group-item.active {
+		background-color: var(--primary);
+		color: var(--white);
+	}
 }
 
 /* MAIN WRAPPER */
@@ -841,6 +900,20 @@ a:hover {
 	user-select: none;
 	outline: none;
 	cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {
+	.woocommerce-result-count {
+		width: 100% !important;
+	}
+	.woocommerce-ordering {
+		width: 100% !important;
+		justify-content: left;
+	}
+
+	.woocommerce-ordering select.orderby {
+		flex: 1 1 auto !important;
+	}
 }
 
 .woocommerce-info {

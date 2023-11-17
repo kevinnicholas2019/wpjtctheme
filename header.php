@@ -18,3 +18,4 @@
         <?= get_template_part('template-parts/header', 'primary') ?>
         <?= get_template_part('template-parts/header', 'search') ?>
     </header>
+    <main>

@@ -6,6 +6,17 @@
 	window.PerfectScrollbar = require('perfect-scrollbar');
 	window.bootstrap = require('bootstrap');
 
+	// PS
+	if ($('.ps').length > 0) {
+		$('.ps').each(function () {
+			new PerfectScrollbar(this, {
+				wheelSpeed: 0.75,
+				wheelPropagation: true,
+				useBothWheelAxes: true,
+			});
+		});
+	}
+
 	window.customOnScroll = function () {
 		var raf = window.requestAnimationFrame ||
 			window.webkitRequestAnimationFrame ||
@@ -104,14 +115,7 @@
 		splide.mount();
 	}
 
-	if ($('.ps').length > 0) {
-		const ps = new
-			PerfectScrollbar('.ps', {
-				wheelSpeed: 0.75,
-				wheelPropagation: true,
-			});
-	}
-
+	//SHOP QTY
 	$('.btn-minuse').on('click', function () {
 		var target = $(this).parent().parent().find('input[type=number]');
 		var curr = parseInt(target.val()) - 1;
@@ -133,5 +137,6 @@
 		}
 	});
 
+	//INIT
 	window.customOnScrollSingleton = new window.customOnScroll();
 })();

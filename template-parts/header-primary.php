@@ -3,7 +3,7 @@ require_once get_template_directory() . '/classes/class-jayatehnikcompany-menu-w
 require_once get_template_directory() . '/inc/jtc-get-custom-logo.php';
 ?>
 
-<div class="header-primary bg-dark-custom px-md-4 py-md-3 w-100">
+<div class="header-primary bg-dark-custom px-md-4 py-md-3 w-100 ps">
     <div class="text-center d-lg-flex flex-lg-row align-items-md-top align-content-around container">
         <div class="me-auto d-none d-lg-block">
             <a class="site-title d-flex align-items-center justify-content-center justify-content-lg-start h-100" href="<?= home_url() ?>">
