@@ -75,8 +75,9 @@ body,
 	/* Sidebar */
 	--sidebar-width: 280px;
 	--content-max-width: 860px;
-	--z-index-header: 99991;
-	--z-index-modal-gallery-slider: 99992;
+	--z-index-modal-gallery-slider: 99991;
+	--z-index-category-dropdown: 99992;
+	--z-index-header: 99993;
 }
 
 .font-size-small {
@@ -358,6 +359,15 @@ a,
 	color: var(--gray-dark);
 }
 
+a.dropdown-item {
+	color: var(--gray-dark) !important;
+}
+
+a.dropdown-item:focus {
+	background-color: var(--primary) !important;
+	color: var(--white) !important;
+}
+
 h1,
 h2,
 h3,
@@ -414,6 +424,13 @@ a:hover {
 .bg-dark a:hover,
 .bg-dark-custom a:hover {
 	/* color: var(--white) !important; */
+	color: var(--primary);
+}
+
+.bg-dark a:focus,
+.bg-dark .nav-link:focus,
+.bg-dark-custom a:focus,
+.bg-dark-custom .nav-link:focus {
 	color: var(--primary);
 }
 
@@ -793,7 +810,6 @@ a:hover {
 
 	#sidebar > section:nth-child(2) .list-group.ps {
 		flex-direction: row;
-		height: 38px;
 		column-gap: 0.5rem;
 		height: auto !important;
 		padding-bottom: 12px;
@@ -811,6 +827,64 @@ a:hover {
 		background-color: var(--primary);
 		color: var(--white);
 	}
+}
+
+/* CATEGORY */
+
+#dropdownCategoryMenuLinkContainer {
+	height: 62px;
+	position: unset;
+}
+
+#dropdownCategoryMenuLink {
+	font-size: 16px;
+}
+
+#dropdownCategoryMenuLink2 {
+	/* top: 62px; */
+	left: 0;
+	right: 0;
+	/* width: calc(100vw - 110px); */
+	top: 220px;
+	width: 100%;
+}
+
+#headernav.fixed-top #dropdownCategoryMenuLink2 {
+	top: calc(220px - 55px);
+}
+
+@media screen and (max-width: 992px) {
+	#dropdownCategoryMenuLink2 {
+		top: calc(220px + 20px);
+	}
+
+	#headernav.fixed-top #dropdownCategoryMenuLink2 {
+		top: calc(220px + 20px);
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#dropdownCategoryMenuLink2 {
+		top: calc(220px - 15px);
+	}
+
+	#headernav.fixed-top #dropdownCategoryMenuLink2 {
+		top: calc(220px - 15px);
+	}
+}
+
+@media screen and (max-width: 576px) {
+	#dropdownCategoryMenuLink2 {
+		top: calc(220px - 20px);
+	}
+
+	#headernav.fixed-top #dropdownCategoryMenuLink2 {
+		top: calc(220px - 20px);
+	}
+}
+
+.dropdown-hovered:hover .dropdown-menu {
+	display: block;
 }
 
 /* MAIN WRAPPER */

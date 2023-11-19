@@ -1,3 +1,4 @@
+<div class="bg-dark-custom position-fixed w-100 h-100 d-none" id="categoryModalTatakanHitam" style="left: 0; top: 0; z-index: var(--z-index-category-dropdown)"></div>
 </main>
 
 <?php

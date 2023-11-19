@@ -1,11 +1,30 @@
-<div class="header-search bg-dark-custom pb-2">
+<div class="header-search bg-dark-custom">
     <div class="container d-flex flex-lg-row flex-column-reverse align-items-lg-center align-items-unset gap-3 gap-lg-0">
         <div class="d-flex flex-row align-items-center flex-fill">
-            <div class="me-3">
-                <a href="#" style="font-size: 16px;">
+            <div class="d-flex align-items-center dropdown dropdown-hovered pe-3" id="dropdownCategoryMenuLinkContainer">
+                <a href="#" role="button" id="dropdownCategoryMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="d-lg-inline d-none">Category</span>
                     <i class="fas fa-list d-lg-none d-inline"></i>
                 </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownCategoryMenuLink" id="dropdownCategoryMenuLink2">
+                    <ul class="list-unstyled container mb-0">
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Action
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Another action
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Something else here
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="searcher">
                 <i class="fas fa-search ms-2"></i>

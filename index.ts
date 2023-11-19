@@ -10,7 +10,7 @@
 	if ($('.ps').length > 0) {
 		$('.ps').each(function () {
 			new PerfectScrollbar(this, {
-				wheelSpeed: 2,
+				wheelSpeed: 5,
 				wheelPropagation: true,
 				useBothWheelAxes: true,
 			});
@@ -95,6 +95,24 @@
 		}
 	}
 
+	window.categoryOnMouse = function () {
+		$('#dropdownCategoryMenuLinkContainer').hover(function () {
+			$('#categoryModalTatakanHitam').removeClass('d-none');
+			$(this).addClass('show');
+			var dropdown = $(this).find('a[data-bs-toggle=dropdown]');
+			var target = dropdown.attr("id");
+			target = $("*[aria-labelledby=" + target + "]");
+			target.addClass('show');
+		}, function () {
+			$('#categoryModalTatakanHitam').addClass('d-none');
+			$(this).removeClass('show');
+			var dropdown = $(this).find('a[data-bs-toggle=dropdown]');
+			var target = dropdown.attr("id");
+			target = $("*[aria-labelledby=" + target + "]");
+			target.removeClass('show');
+		});
+	}
+
 	// a href=# prevenDefault
 	$("a[href=#]").on("click", (e) => e.preventDefault());
 
@@ -139,4 +157,5 @@
 
 	//INIT
 	window.customOnScrollSingleton = new window.customOnScroll();
+	window.categoryOnMouseSingleton = new window.categoryOnMouse();
 })();
