@@ -7,7 +7,7 @@
                     <i class="fas fa-list d-lg-none d-inline"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownCategoryMenuLink" id="dropdownCategoryMenuLink2">
-                    <ul class="list-unstyled container mb-0">
+                    <ul class="list-unstyled container mb-0 ps">
                         <li>
                             <a class="dropdown-item" href="#">
                                 Action

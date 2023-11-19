@@ -838,6 +838,35 @@ a:hover {
 
 #dropdownCategoryMenuLink {
 	font-size: 16px;
+	position: relative;
+}
+
+#dropdownCategoryMenuLinkContainer.show #dropdownCategoryMenuLink::before {
+	content: "";
+	display: block;
+	position: absolute;
+	background-color: var(--primary);
+	opacity: 0.5;
+	width: 100%;
+	height: 100%;
+	padding: 20px 42px;
+	left: -8.5px;
+	top: -7.5px;
+	border-radius: var(--bs-border-radius) !important;
+}
+
+#dropdownCategoryMenuLinkContainer.show #dropdownCategoryMenuLink * {
+	position: relative;
+	z-index: var(--z-index-header);
+}
+
+@keyframes category-anim {
+	0% {
+		height: 0%;
+	}
+	100% {
+		height: calc(100vh - 368px);
+	}
 }
 
 #dropdownCategoryMenuLink2 {
@@ -847,6 +876,11 @@ a:hover {
 	/* width: calc(100vw - 110px); */
 	top: 220px;
 	width: 100%;
+	height: calc(100vh - 368px);
+	animation-name: category-anim;
+	animation-duration: calc((1 / 60) * 10s);
+	/* animation-duration: 2s; */
+	animation-timing-function: linear;
 }
 
 #headernav.fixed-top #dropdownCategoryMenuLink2 {
@@ -854,6 +888,10 @@ a:hover {
 }
 
 @media screen and (max-width: 992px) {
+	#dropdownCategoryMenuLinkContainer.show #dropdownCategoryMenuLink::before {
+		padding: 20px 17.5px;
+	}
+
 	#dropdownCategoryMenuLink2 {
 		top: calc(220px + 20px);
 	}
