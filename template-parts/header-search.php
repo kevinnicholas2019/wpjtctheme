@@ -7,23 +7,42 @@
                     <i class="fas fa-list d-lg-none d-inline"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownCategoryMenuLink" id="dropdownCategoryMenuLink2">
-                    <ul class="list-unstyled container mb-0 ps">
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                Action
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                Another action
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                Something else here
-                            </a>
-                        </li>
-                    </ul>
+                    <nav class="container p-md-0 px-1 mb-2">
+                        <div class="nav nav-tabs d-flex" id="nav-cat-tab" role="tablist">
+                            <button class="nav-link flex-fill active" id="nav-cat-products-tab" data-bs-toggle="tab" data-bs-target="#nav-cat-products" type="button" role="tab" aria-controls="nav-cat-products" aria-selected="true">Products</button>
+                            <button class="nav-link flex-fill" id="nav-cat-brands-tab" data-bs-toggle="tab" data-bs-target="#nav-cat-brands" type="button" role="tab" aria-controls="nav-cat-brands" aria-selected="false">Brands</button>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-cat-tabContent">
+                        <div class="h-100 tab-pane fade show active" id="nav-cat-products" role="tabpanel" aria-labelledby="nav-cat-products-tab">
+                            <div class="d-flex flex-column flex-lg-row align-items-start container h-100 p-md-0 px-1">
+                                <div class="nav row-gap-2 flex-row flex-lg-column nav-pills me-3 pe-lg-3 pe-0 pb-3 pb-lg-0 mb-3 mb-lg-0 col-12 col-lg-2 h-auto h-lg-100 ps flex-nowrap" id="v-pills-products-tab" role="tablist" aria-orientation="vertical">
+                                    <?php for ($i = 1; $i <= 22; $i++) { ?>
+                                        <button class="fw-bold text-nowrap nav-link <?= $i == 1 ? 'active' : '' ?>" id="v-pills-product-<?= $i ?>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-product-<?= $i ?>" type="button" role="tab" aria-controls="v-pills-product-<?= $i ?>" aria-selected="<?= $i == 1 ? 'true' : 'false' ?>">Product <?= $i ?></button>
+                                    <?php } ?>
+                                </div>
+                                <div class="tab-content col-12 col-lg-10" id="v-pills-products-tabContent">
+                                    <?php for ($i = 1; $i <= 22; $i++) { ?>
+                                        <div class="tab-pane fade <?= $i == 1 ? 'show active' : '' ?>" id="v-pills-product-<?= $i ?>" role="tabpanel" aria-labelledby="v-pills-product-<?= $i ?>-tab">...</div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-100 tab-pane fade" id="nav-cat-brands" role="tabpanel" aria-labelledby="nav-cat-brands-tab">
+                            <div class="d-flex flex-column flex-lg-row align-items-start container h-100 p-0">
+                                <div class="nav row-gap-2 flex-row flex-lg-column nav-pills me-3 pe-lg-3 pe-0 pb-3 pb-lg-0 mb-3 mb-lg-0 col-12 col-lg-2 h-auto h-lg-100 ps flex-nowrap" id="v-pills-brands-tab" role="tablist" aria-orientation="vertical">
+                                    <?php for ($i = 1; $i <= 22; $i++) { ?>
+                                        <button class="fw-bold text-nowrap nav-link <?= $i == 1 ? 'active' : '' ?>" id="v-pills-brand-<?= $i ?>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-brand-<?= $i ?>" type="button" role="tab" aria-controls="v-pills-brand-<?= $i ?>" aria-selected="<?= $i == 1 ? 'true' : 'false' ?>">Brand <?= $i ?></button>
+                                    <?php } ?>
+                                </div>
+                                <div class="tab-content col-12 col-lg-10" id="v-pills-brands-tabContent">
+                                    <?php for ($i = 1; $i <= 22; $i++) { ?>
+                                        <div class="tab-pane fade <?= $i == 1 ? 'show active' : '' ?>" id="v-pills-brand-<?= $i ?>" role="tabpanel" aria-labelledby="v-pills-brand-<?= $i ?>-tab">...</div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="searcher">

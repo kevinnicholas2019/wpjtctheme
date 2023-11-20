@@ -138,15 +138,35 @@ function jayatehnikcompany_widget_areas()
     );
 }
 
+function jayatehnikcompany_woo_custom_product_searchform($form)
+{
+    $sitetitle = get_bloginfo('name');
+    $form = '<form class="form w-100" role="search" method="get" id="searchform" action="' . esc_url(home_url('/')) . '">
+		<div class="form-group">
+			<label class="screen-reader-text" for="s">' . __('Search for:', 'woocommerce') . '</label>
+			<input class="search-field form-control w-100" type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="' . __("Find unit & parts at $sitetitle", 'woocommerce') . '" />
+			<input type="hidden" name="post_type" value="product" />
+		</div>
+        <input class="search-submit" type="submit" id="searchsubmit" value="' . esc_attr__('Search', 'woocommerce') . '" />
+	</form>';
+    return $form;
+}
+
+
 function jayatehnikcompany_replace_placeholder_search_text($form)
 {
     $sitetitle = get_bloginfo('name');
     $pattern = '/placeholder=".*"/U';
     // $replacement = "placeholder='Cari barang di $sitetitle'";
-    $replacement = "placeholder='Find unit & parts at $sitetitle'";
+    $str = __("Find unit & parts at $sitetitle", 'woocommerce');
+    $replacement = "placeholder='$str'";
     $form = preg_replace($pattern, $replacement, $form);
     $pattern = '/(search-field)/';
     $replacement = 'search-field form-control w-100';
+    $form = preg_replace($pattern, $replacement, $form);
+    $pattern = '/class="search-submit" value=".*"/U';
+    $str = esc_attr__('Search', 'woocommerce');
+    $replacement = "class='search-submit' value='$str'";
     $form = preg_replace($pattern, $replacement, $form);
     return $form;
 }
@@ -157,7 +177,8 @@ add_action('after_setup_theme', 'jayatehnikcompany_theme_support');
 add_action('after_setup_theme', 'jayatehnikcompany_add_woocommerce_support');
 add_action('wp_enqueue_scripts', 'jayatehnikcompany_register_styles');
 add_action('wp_enqueue_scripts', 'jayatehnikcompany_register_scripts');
-add_filter('get_search_form', 'jayatehnikcompany_replace_placeholder_search_text');
+// add_filter('get_search_form', 'jayatehnikcompany_replace_placeholder_search_text');
+add_filter('get_search_form', 'jayatehnikcompany_woo_custom_product_searchform');
 
 //AJAX FUNCTIONS
 function get_products_by_cat_callback()

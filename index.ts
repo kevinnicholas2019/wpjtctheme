@@ -111,6 +111,12 @@
 			target = $("*[aria-labelledby=" + target + "]");
 			target.removeClass('show');
 		});
+
+		$('#dropdownCategoryMenuLink2 .tab-content button.nav-link').hover(function () {
+			// $(this).parent().find('.active').removeClass('active');
+			// $(this).addClass('active');
+			$(this).trigger('click');
+		});
 	}
 
 	// a href=# prevenDefault
